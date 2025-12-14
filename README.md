@@ -1,0 +1,2 @@
+# jnuresults
+Exam Result Portal
