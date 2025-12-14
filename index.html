@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Result Portal</title>
+  <title>Examination Results</title>
+  <style>
+    body { font-family: Arial; background:#f4f6f8; }
+    .box {
+      max-width: 500px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    h1 { color:#003366; }
+    button {
+      background:#003366;
+      color:white;
+      border:none;
+      padding:8px 16px;
+      cursor:pointer;
+    }
+  </style>
 </head>
 <body>
-  <h1>Website is Live</h1>
-  <p>GitHub Pages setup successful.</p>
+
+<div class="box">
+  <h1>Examination Result</h1>
+  <p>Enter your Roll Number to view result.</p>
+
+  <input id="roll" placeholder="Roll Number">
+  <br><br>
+  <button onclick="check()">Submit</button>
+
+  <div id="result" style="margin-top:15px;"></div>
+
+  <p style="font-size:12px;margin-top:20px;">
+    This website is for information purpose only.
+  </p>
+</div>
+
+<script>
+const data = [
+  {roll:"101", name:"Rahul", marks:420, status:"PASS"},
+  {roll:"102", name:"Aman", marks:380, status:"FAIL"}
+];
+
+function check(){
+  let r = document.getElementById("roll").value;
+  let f = data.find(x => x.roll === r);
+  document.getElementById("result").innerHTML =
+    f ? `Name: ${f.name}<br>Marks: ${f.marks}<br>Status: ${f.status}`
+      : "Result not found";
+}
+</script>
+
 </body>
 </html>
-
